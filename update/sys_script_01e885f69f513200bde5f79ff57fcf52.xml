@@ -67,7 +67,7 @@
 	--model_documentation_end--  */
 	
 	/** --endpoint_documentation_start--
-		path="/post/{postId}";
+		path="/posts/{postId}";
 		method="delete";
 		group="Post";
 		summary="Deleting a resource";
@@ -92,7 +92,7 @@
 	--endpoint_documentation_end--  */
 
 	/** --endpoint_documentation_start--
-		path="/post/{postId}";
+		path="/posts/{postId}";
 		method="get";
 		group="Post";
 		summary="Getting a resource";
@@ -118,7 +118,7 @@
 	--endpoint_documentation_end--  */
 
 	/** --endpoint_documentation_start--
-		path="/post/{postId}";
+		path="/posts/{postId}";
 		method="put";
 		group="Post";
 		summary="Updatting a resource";
@@ -191,7 +191,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>01e885f69f513200bde5f79ff57fcf52</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -199,7 +199,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_01e885f69f513200bde5f79ff57fcf52</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-16 18:12:53</sys_updated_on>
+        <sys_updated_on>2024-02-16 18:17:57</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
