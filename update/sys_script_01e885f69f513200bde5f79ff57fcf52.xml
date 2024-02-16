@@ -29,6 +29,93 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 	/** --model_documentation_start--
+		"OAuthTokenRequest":{
+			"properties": {
+				"grant_type": {
+					"type": "string"
+				},
+				"client_id": {
+					"type": "string"
+				},
+				"client_secret": {
+					"type": "string"
+				},
+				"username": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				}
+			}
+		}
+	--model_documentation_end--  */
+
+	/** --model_documentation_start--
+		"OAuthToken401":{
+			"properties": {
+				"error_description": {
+					"type": "string"
+				},
+				"error": {
+					"type": "string"
+				}
+			}
+		}
+	--model_documentation_end--  */
+
+	/** --model_documentation_start--
+		"OAuthTokenResponse":{
+			"properties": {
+				"access_token": {
+					"type": "string"
+				},
+				"refresh_token": {
+					"type": "string"
+				},
+				"scope": {
+					"type": "string"
+				},
+				"token_type": {
+					"type": "string"
+				},
+				"expires_in": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		}
+	--model_documentation_end--  */
+
+	/** --endpoint_documentation_start--
+		path="/oauth_token.do";
+		method="post";
+		group="Auth";
+		summary="Authentication endpoint";
+		consumes=["application/x-www-form-urlencoded"];
+		produces=["application/json"];
+		parameters=[
+			{
+				"in":"body",
+				"name":"AuthRequest",
+				"type":"integer",
+				"description":"Object to send credentials",
+				"required": true,
+				"schema": "$OAuthTokenRequest$"
+			}
+		];
+		responses= {
+		   "200": {
+				"description":"Successful authentication",
+				"schema": "$OAuthTokenResponse$"
+			},
+			"401": {
+				"description":"Access denied",
+				"schema": "$OAuthTokenResponse$"
+			}
+		};
+	--endpoint_documentation_end--  */
+	
+	/** --model_documentation_start_no--
 		"PostWithId":{
 			"properties": {
 				"id": {
@@ -47,9 +134,9 @@
 				}
 			}
 		}
-	--model_documentation_end--  */
+	--model_documentation_end_no--  */
 
-	/** --model_documentation_start--
+	/** --model_documentation_start_no--
 		"PostWithoutId":{
 			"properties": {
 				"title": {
@@ -64,9 +151,9 @@
 				}
 			}
 		}
-	--model_documentation_end--  */
+	--model_documentation_end_no--  */
 	
-	/** --endpoint_documentation_start--
+	/** --endpoint_documentation_start_no--
 		path="/posts/{postId}";
 		method="delete";
 		group="Post";
@@ -88,9 +175,9 @@
 				"description":"Deleting a resource"
 			}
 		};
-	--endpoint_documentation_end--  */
+	--endpoint_documentation_end_no--  */
 
-	/** --endpoint_documentation_start--
+	/** --endpoint_documentation_start_no--
 		path="/posts/{postId}";
 		method="get";
 		group="Post";
@@ -113,9 +200,9 @@
 				"schema": "$PostWithId$"
 			}
 		};
-	--endpoint_documentation_end--  */
+	--endpoint_documentation_end_no--  */
 
-	/** --endpoint_documentation_start--
+	/** --endpoint_documentation_start_no--
 		path="/posts/{postId}";
 		method="put";
 		group="Post";
@@ -145,9 +232,9 @@
 				"schema": "$PostWithId$"
 			}
 		};
-	--endpoint_documentation_end--  */
+	--endpoint_documentation_end_no--  */
 
-	/** --endpoint_documentation_start--
+	/** --endpoint_documentation_start_no--
 		path="/posts";
 		method="get";
 		group="Post";
@@ -166,7 +253,7 @@
 				}
 			}
 		};
-	--endpoint_documentation_end--  */
+	--endpoint_documentation_end_no--  */
 
 	// Pass the Requested for email to the Script Include.  Store the return
     // value from the Script Include in the isEmail variable
@@ -185,7 +272,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>01e885f69f513200bde5f79ff57fcf52</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -193,7 +280,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_01e885f69f513200bde5f79ff57fcf52</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-16 19:19:20</sys_updated_on>
+        <sys_updated_on>2024-02-16 22:36:57</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
