@@ -150,6 +150,30 @@
 		};
 	--endpoint_documentation_end--  */
 
+	/** --endpoint_documentation_start--
+		path="/posts";
+		method="get";
+		tag="Post";
+		summary="Listing all posts";
+		operationId="getAllPost";
+		consumes=["application/json"];
+		produces=["application/json"];
+		parameters=[
+			
+		];
+		responses= {
+		   "200": {
+				"description":"Successful operation",
+				"schema": {
+					"type": "array",
+					"items": {
+						"$ref": "$PostWithId$"
+					}
+				}
+			}
+		};
+	--endpoint_documentation_end--  */
+
 	// Pass the Requested for email to the Script Include.  Store the return
     // value from the Script Include in the isEmail variable
     var isEmail = validateEmailAddress(current.u_requested_for_email);
@@ -167,7 +191,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>01e885f69f513200bde5f79ff57fcf52</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -175,7 +199,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_01e885f69f513200bde5f79ff57fcf52</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-16 17:04:42</sys_updated_on>
+        <sys_updated_on>2024-02-16 17:20:47</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
