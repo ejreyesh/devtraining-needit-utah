@@ -28,17 +28,126 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	/** --model_documentation_start--
+		"PostWithId": {
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"title": {
+					"type": "string"
+				},
+				"body": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		}
+	--model_documentation_end--  */
+
+	/** --model_documentation_start--
+		"PostWithoutId": {
+			"properties": {
+				"title": {
+					"type": "string"
+				},
+				"body": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		}
+	--model_documentation_end--  */
+	
 	/** --endpoint_documentation_start--
-	   path="/post/{idPost}";
-	   method="delete";
-	   tag="Post";
-	   summary="Deleting a resource";
-	   operationId="deletePostById";
-	   consumes=["application/json"];
-	   produces=["application/json"];
-	   parameters=[{"name":"postId", "in":"path", "description":"ID of post to delete", "required": true, "type":"integer", "format": "int64"}];
-	   response.200.description="Deleting a resource";
-	   response.200.schema={"type":"object", "properties": {"id": {"type: integer", "format": int32} }};
+		path="/post/{idPost}";
+		method="delete";
+		tag="Post";
+		summary="Deleting a resource";
+		operationId="deletePostById";
+		consumes=["application/json", "application/xml"];
+		produces=["application/json"];
+		parameters=[
+			{
+				"in":"path",
+				"name":"postId",
+				"type":"integer",
+				"format": "int64",
+				"description":"ID of post to delete",
+				"required": true
+			}
+		];
+		responses= {
+		   "200": {
+				"description":"Deleting a resource"
+			}
+		}
+	--endpoint_documentation_end--  */
+
+	/** --endpoint_documentation_start--
+		path="/post/{idPost}";
+		method="get";
+		tag="Post";
+		summary="Getting a resource";
+		operationId="getPostById";
+		consumes=["application/json", "application/xml"];
+		produces=["application/json"];
+		parameters=[
+			{
+				"in":"path",
+				"name":"postId",
+				"type":"integer",
+				"format": "int64",
+				"description":"ID of post to find",
+				"required": true
+			}
+		];
+		responses= {
+		   "200": {
+				"description":"Deleting a resource",
+				"schema": $PostWithId$
+			}
+		}
+	--endpoint_documentation_end--  */
+
+	/** --endpoint_documentation_start--
+		path="/post/{idPost}";
+		method="put";
+		tag="Post";
+		summary="Updatting a resource";
+		operationId="putPost";
+		consumes=["application/json", "application/xml"];
+		produces=["application/json"];
+		parameters=[
+			{
+				"in":"path",
+				"name":"postId",
+				"type":"integer",
+				"format": "int64",
+				"description":"ID of post to update",
+				"required": true
+			},
+			{
+				"in":"body",
+				"name":"existingPost",
+				"description":"ID of post to update",
+				"required": true,
+				"schema": $PostWhitId$
+			}
+		];
+		responses= {
+		   "200": {
+				"description":"Deleting a resource",
+				"schema": $PostWithId$
+			}
+		}
 	--endpoint_documentation_end--  */
 
 	// Pass the Requested for email to the Script Include.  Store the return
@@ -58,7 +167,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>01e885f69f513200bde5f79ff57fcf52</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Email Address Syntax Validate</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -66,7 +175,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_01e885f69f513200bde5f79ff57fcf52</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-15 18:59:00</sys_updated_on>
+        <sys_updated_on>2024-02-16 00:12:29</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
